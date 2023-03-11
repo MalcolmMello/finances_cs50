@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <table class="table table-bordered">
+      <tr>
+        <th>Symbol</th>
+        <th>Shares</th>
+        <th>Price</th>
+        <th>Date</th>
+      </tr>
+      {% for stock in transactions %}
+          <tr>
+              <td>{{ stock.symbol }}</td>
+              <td>{{ stock.shares }}</td>
+              <td>${{ stock.price }}</td>
+              <td>{{ stock.date }}</td>
+          </tr>
+      {% endfor %}
+    </table>
+
+
+{% endblock %}

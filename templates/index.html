@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <table class="table table-bordered">
+      <tr>
+        <th>Symbol</th>
+        <th>Name</th>
+        <th>Shares</th>
+        <th>Price</th>
+        <th>Total</th>
+      </tr>
+      <tr>
+        <td>CASH</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <th>${{ wallet[0].cash }}</th>
+      </tr>
+      {% if wallet[0].symbol %}
+        {% for stock in wallet %}
+            <tr>
+                <td>{{ stock.symbol }}</td>
+                <td>{{ stock.name }}</td>
+                <td>{{ stock.length }}</td>
+                <td>${{ stock.price }}</td>
+                <td>${{ stock.price * stock.length }}</td>
+            </tr>
+        {% endfor %}
+      {% endif %}
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <th>${{ total }}</th>
+      </tr>
+    </table>
+
+
+{% endblock %}
